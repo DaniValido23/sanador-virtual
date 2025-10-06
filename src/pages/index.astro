@@ -1,16 +1,408 @@
 ---
-
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Feature from '../components/Feature.astro';
+import HowItWorks from '../components/HowItWorks.astro';
+import Testimonial from '../components/Testimonial.astro';
+import CTASection from '../components/CTASection.astro';
+import Footer from '../components/Footer.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout
+  title="Sanador Virtual - Telemedicina para comunidades rurales de Oaxaca"
+  description="Plataforma de telemedicina accesible con enfoque cultural, soporte en lenguas indígenas, triaje por IA y teleconsulta segura para comunidades rurales."
+>
+  <Header />
+
+  <Hero
+    title="Atención médica cerca de ti, sin salir de tu comunidad"
+    subtitle="Telemedicina accesible para comunidades rurales de Oaxaca. Triaje inteligente, teleconsulta segura y funciona con conexión intermitente."
+    ctaPrimary={{ text: 'Únete al piloto', href: '/contacto' }}
+    ctaSecondary={{ text: 'Conoce más', href: '/caracteristicas' }}
+    image="/assets/doctors.png"
+    imageAlt="Equipo médico de Sanador Virtual"
+  />
+
+  <section class="features">
+    <div class="container">
+      <h2>¿Por qué Sanador Virtual?</h2>
+      <p class="section-subtitle">Tecnología al servicio de tu salud, diseñada para tu comunidad</p>
+
+      <div class="features-layout">
+        <div class="features-content">
+          <div class="feature-highlight">
+            <div class="feature-icon-large">
+              <img src="/assets/online_doctor.png" alt="Teleconsulta" />
+            </div>
+            <div>
+              <h3>Atención Médica Completa desde tu Celular</h3>
+              <p>Conéctate con médicos certificados y acreditados. Consultas accesibles a menos de $50 MXN, diseñadas para comunidades rurales.</p>
+            </div>
+          </div>
+
+          <div class="features-list">
+            <div class="feature-item">
+              <div class="check-icon">✓</div>
+              <div>
+                <h4>Triaje Inteligente por IA</h4>
+                <p>Evalúa tus síntomas y te conecta con el especialista adecuado en tu idioma</p>
+              </div>
+            </div>
+
+            <div class="feature-item">
+              <div class="check-icon">✓</div>
+              <div>
+                <h4>Historia Clínica Digital Segura</h4>
+                <p>Tu información médica protegida y accesible desde cualquier lugar</p>
+              </div>
+            </div>
+
+            <div class="feature-item">
+              <div class="check-icon">✓</div>
+              <div>
+                <h4>Múltiples Especialidades</h4>
+                <p>Medicina general, pediatría, ginecología y más según tu necesidad</p>
+              </div>
+            </div>
+
+            <div class="feature-item">
+              <div class="check-icon">✓</div>
+              <div>
+                <h4>Funciona Sin Internet Constante</h4>
+                <p>Diseñado para conexión intermitente con sincronización automática</p>
+              </div>
+            </div>
+
+            <div class="feature-item">
+              <div class="check-icon">✓</div>
+              <div>
+                <h4>Para Toda la Familia</h4>
+                <p>Atención médica para niños, adultos y adultos mayores</p>
+              </div>
+            </div>
+
+            <div class="feature-item">
+              <div class="check-icon">✓</div>
+              <div>
+                <h4>Soporte en Lenguas Indígenas</h4>
+                <p>Intérpretes disponibles y materiales culturalmente apropiados</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="features-image">
+          <img src="/assets/hospital3.png" alt="Sanador Virtual" />
+          <div class="image-badge">
+            <span class="badge-number">100%</span>
+            <span class="badge-text">Médicos Certificados</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <HowItWorks />
+
+  <section class="testimonials">
+    <div class="container">
+      <h2>Voces de nuestra comunidad</h2>
+      <p class="section-subtitle">Historias reales de quienes confían en Sanador Virtual</p>
+
+      <div class="testimonials-grid">
+        <Testimonial
+          quote="Antes tenía que viajar 2 horas para ver a un doctor. Ahora puedo consultar desde mi casa y en mi idioma. Ha sido un gran cambio para mi familia."
+          author="María Santos"
+          role="Madre de familia"
+          community="San Pedro el Alto"
+        />
+
+        <Testimonial
+          quote="Como promotor de salud, esta herramienta me permite ayudar a más personas en la comunidad. Es fácil de usar y los doctores responden rápido."
+          author="José Luis Martínez"
+          role="Promotor de salud comunitario"
+          community="Santiago Textitlán"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat">
+          <div class="stat-number">&lt; $50</div>
+          <div class="stat-label">Costo por consulta</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">24/7</div>
+          <div class="stat-label">Disponibilidad</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Médicos certificados</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">Offline</div>
+          <div class="stat-label">Funciona sin internet</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTASection
+    title="¿Listo para unirte?"
+    description="Estamos iniciando nuestro piloto en comunidades de Oaxaca. Regístrate para recibir información y ser parte del cambio."
+    primaryCTA={{ text: 'Solicitar información', href: '/contacto' }}
+    secondaryCTA={{ text: '¿Eres clínica?', href: '/clinicas' }}
+  />
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .features {
+    background: white;
+  }
+
+  .features h2 {
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .section-subtitle {
+    text-align: center;
+    color: var(--text-light);
+    font-size: 1.125rem;
+    margin-bottom: 3rem;
+  }
+
+  .features-layout {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .features-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .feature-highlight {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    padding: 2rem;
+    background: linear-gradient(135deg, var(--bg-light) 0%, var(--accent) 100%);
+    border-radius: 1rem;
+    border-left: 4px solid var(--primary);
+  }
+
+  .feature-icon-large {
+    flex-shrink: 0;
+    width: 80px;
+    height: 80px;
+  }
+
+  .feature-icon-large img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .feature-highlight h3 {
+    color: var(--primary);
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .feature-highlight p {
+    color: var(--text-light);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  .features-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .feature-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .check-icon {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    background: var(--primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1rem;
+  }
+
+  .feature-item h4 {
+    color: var(--text);
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+    font-weight: 600;
+  }
+
+  .feature-item p {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .features-image {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .features-image img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 1rem;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  }
+
+  .image-badge {
+    position: absolute;
+    bottom: -10px;
+    right: -10px;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    text-align: center;
+    border: 3px solid var(--primary);
+  }
+
+  .badge-number {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary);
+    line-height: 1;
+  }
+
+  .badge-text {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--text-light);
+    margin-top: 0.25rem;
+    font-weight: 600;
+  }
+
+  .testimonials {
+    background: var(--bg-light);
+  }
+
+  .testimonials h2 {
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .stats {
+    background: white;
+    padding: 3rem 0;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+
+  .stat {
+    text-align: center;
+    padding: 2rem 1rem;
+    background: var(--bg-light);
+    border-radius: 1rem;
+  }
+
+  .stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+  }
+
+  .stat-label {
+    color: var(--text-light);
+    font-size: 1rem;
+  }
+
+  @media (max-width: 768px) {
+    .features-layout {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .features-image {
+      order: -1;
+    }
+
+    .features-list {
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+
+    .feature-highlight {
+      flex-direction: column;
+      padding: 1.5rem;
+    }
+
+    .feature-icon-large {
+      width: 60px;
+      height: 60px;
+    }
+
+    .feature-highlight h3 {
+      font-size: 1.25rem;
+    }
+
+    .image-badge {
+      bottom: 10px;
+      right: 10px;
+      padding: 1rem;
+    }
+
+    .badge-number {
+      font-size: 1.5rem;
+    }
+
+    .testimonials-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    .stat-number {
+      font-size: 2rem;
+    }
+  }
+</style>

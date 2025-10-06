@@ -1,0 +1,180 @@
+---
+const links = {
+  pages: [
+    { href: '/caracteristicas', label: 'Características' },
+    { href: '/precios', label: 'Precios' },
+    { href: '/faq', label: 'FAQ' },
+  ],
+  community: [
+    { href: '/clinicas', label: 'Clínicas' },
+    { href: '/promotores', label: 'Promotores' },
+    { href: '/contacto', label: 'Contacto' }
+  ],
+  legal: [
+    { href: '/privacidad', label: 'Privacidad' },
+    { href: '/terminos', label: 'Términos de Servicio' }
+  ]
+};
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="/assets/icon.png" alt="Sanador Virtual" />
+          <h3>Sanador Virtual</h3>
+        </div>
+        <p>Telemedicina accesible para comunidades rurales de Oaxaca</p>
+      </div>
+
+      <div class="footer-links">
+        <div>
+          <h4>Plataforma</h4>
+          <ul>
+            {links.pages.map(link => (
+              <li><a href={link.href}>{link.label}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <h4>Comunidad</h4>
+          <ul>
+            {links.community.map(link => (
+              <li><a href={link.href}>{link.label}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <h4>Legal</h4>
+          <ul>
+            {links.legal.map(link => (
+              <li><a href={link.href}>{link.label}</a></li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; {currentYear} Sanador Virtual. Todos los derechos reservados.</p>
+      <p class="tagline">Cerrando brechas de acceso a la salud en comunidades rurales</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  footer {
+    background: var(--text);
+    color: white;
+    padding: 3rem 0 1.5rem;
+    margin-top: 4rem;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    gap: 3rem;
+    margin-bottom: 2rem;
+  }
+
+  .footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .footer-logo img {
+    height: 50px;
+    width: 50px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+  }
+
+  .footer-logo h3 {
+    font-family: 'Playfair Display', 'Georgia', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+    margin: 0;
+    letter-spacing: -0.02em;
+  }
+
+  .footer-brand p {
+    color: #d1d5db;
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .footer-links {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .footer-links h4 {
+    color: white;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .footer-links ul {
+    list-style: none;
+  }
+
+  .footer-links li {
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-links a {
+    color: #d1d5db;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover {
+    color: var(--primary);
+  }
+
+  .footer-bottom {
+    padding-top: 2rem;
+    border-top: 1px solid #374151;
+    text-align: center;
+  }
+
+  .footer-bottom p {
+    color: #9ca3af;
+    font-size: 0.875rem;
+    margin: 0.25rem 0;
+  }
+
+  .tagline {
+    font-style: italic;
+  }
+
+  @media (max-width: 768px) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .footer-logo img {
+      height: 40px;
+      width: 40px;
+    }
+
+    .footer-logo h3 {
+      font-size: 1.25rem;
+    }
+
+    .footer-links {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  }
+</style>

@@ -1,0 +1,297 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CTASection from '../components/CTASection.astro';
+
+const features = [
+  {
+    title: 'Triaje por Inteligencia Artificial',
+    description: 'Nuestro sistema de triaje inteligente evalúa tus síntomas mediante preguntas sencillas y comprensibles. La IA analiza tus respuestas y determina el nivel de urgencia, conectándote con el especialista más adecuado para tu caso.',
+    benefits: [
+      'Evaluación rápida en menos de 5 minutos',
+      'Disponible en español y lenguas indígenas',
+      'Priorización automática según urgencia',
+      'Recomendación del especialista adecuado'
+    ],
+    image: '/assets/iia.png'
+  },
+  {
+    title: 'Teleconsulta Segura',
+    description: 'Conéctate con médicos certificados desde tu celular. Todas las consultas son privadas, seguras y realizadas por profesionales acreditados con experiencia en atención a comunidades rurales.',
+    benefits: [
+      'Médicos certificados y acreditados',
+      'Consultas por video, voz o chat',
+      'Conexión cifrada y privada',
+      'Seguimiento de tratamientos'
+    ],
+    image: '/assets/doctors.png'
+  },
+  {
+    title: 'Historia Clínica Digital',
+    description: 'Tu información médica se guarda de forma segura en formato digital. Accede a tu historial, recetas y tratamientos desde cualquier lugar. El sistema protege tu privacidad y cumple con las normativas de salud.',
+    benefits: [
+      'Acceso seguro a tu historial médico',
+      'Recetas y documentos digitales',
+      'Sincronización automática',
+      'Respaldo en la nube'
+    ],
+    image: '/assets/prescription.png'
+  },
+  {
+    title: 'Soporte en Lenguas Indígenas',
+    description: 'Entendemos la importancia de comunicarse en tu propio idioma. Estamos trabajando en soporte para zapoteco, mixteco y otras lenguas indígenas de Oaxaca, con materiales culturalmente apropiados.',
+    benefits: [
+      'Interfaz en español y lenguas locales',
+      'Intérpretes médicos disponibles',
+      'Materiales educativos traducidos',
+      'Respeto a tu contexto cultural'
+    ],
+    image: '/assets/conversation.png'
+  },
+  {
+    title: 'Modo Offline-First',
+    description: 'Diseñado para funcionar con conexión intermitente. Los datos se guardan localmente en tu dispositivo y se sincronizan automáticamente cuando hay señal disponible.',
+    benefits: [
+      'Funciona sin internet constante',
+      'Sincronización automática',
+      'Bajo consumo de datos',
+      'Optimizado para conexiones lentas'
+    ],
+    image: '/assets/offline.png'
+  },
+  {
+    title: 'Múltiples Especialidades',
+    description: 'Acceso a diferentes especialidades médicas según las necesidades de tu comunidad: medicina general, pediatría, ginecología, y más especialidades en desarrollo.',
+    benefits: [
+      'Medicina general y familiar',
+      'Pediatría para tus hijos',
+      'Ginecología y salud materna',
+      'Expansión continua de especialidades'
+    ],
+    image: '/assets/pediatrician.png'
+  }
+];
+---
+
+<BaseLayout
+  title="Características - Sanador Virtual"
+  description="Conoce todas las características de Sanador Virtual: triaje por IA, teleconsulta segura, historias clínicas digitales, soporte en lenguas indígenas y modo offline."
+>
+  <Header />
+
+  <section class="page-hero">
+    <div class="container">
+      <h1>Características de Sanador Virtual</h1>
+      <p class="hero-description">
+        Tecnología médica accesible diseñada específicamente para comunidades rurales.
+        Cada característica está pensada para superar las barreras de acceso a la salud.
+      </p>
+    </div>
+  </section>
+
+  <section class="features-detailed">
+    <div class="container">
+      {features.map((feature, index) => (
+        <div class={`feature-detail ${index % 2 === 1 ? 'reverse' : ''}`}>
+          <div class="feature-image">
+            <img src={feature.image} alt={feature.title} loading="lazy" />
+          </div>
+          <div class="feature-content">
+            <h2>{feature.title}</h2>
+            <p>{feature.description}</p>
+            <ul class="benefits-list">
+              {feature.benefits.map(benefit => (
+                <li>{benefit}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="tech-note">
+    <div class="container">
+      <h2>Conectividad y Requisitos</h2>
+      <div class="tech-grid">
+        <div class="tech-card">
+          <h3>Conexión Intermitente</h3>
+          <p>
+            Sanador Virtual está optimizado para funcionar con conexión limitada.
+            Los datos se guardan localmente y se sincronizan cuando hay señal.
+          </p>
+        </div>
+        <div class="tech-card">
+          <h3>Requisitos Mínimos</h3>
+          <p>
+            Celular con Android 8+ o iOS 12+. Funciona en dispositivos básicos.
+            No requiere smartphone de alta gama ni conexión rápida.
+          </p>
+        </div>
+        <div class="tech-card">
+          <h3>Bajo Consumo de Datos</h3>
+          <p>
+            Diseñado para consumir la mínima cantidad de datos posible.
+            Una consulta promedio usa menos de 10 MB.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTASection
+    title="¿Listo para probar Sanador Virtual?"
+    description="Únete a nuestro programa piloto y sé parte de la transformación de la salud rural."
+    primaryCTA={{ text: 'Solicitar información', href: '/contacto' }}
+    secondaryCTA={{ text: 'Ver precios', href: '/precios' }}
+  />
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .page-hero {
+    background: linear-gradient(135deg, #f3f6fb 0%, #e3ebf6 100%);
+    padding: 5rem 0 4rem;
+    text-align: center;
+  }
+
+  .page-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-description {
+    font-size: 1.25rem;
+    color: var(--text-light);
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.8;
+  }
+
+  .features-detailed {
+    padding: 4rem 0;
+  }
+
+  .feature-detail {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 4rem;
+    align-items: center;
+    margin-bottom: 5rem;
+    padding: 3rem;
+    background: var(--bg-light);
+    border-radius: 1rem;
+  }
+
+  .feature-detail.reverse {
+    grid-template-columns: 1.5fr 1fr;
+    background: white;
+  }
+
+  .feature-detail.reverse .feature-image {
+    order: 2;
+  }
+
+  .feature-image img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .feature-content h2 {
+    color: var(--primary);
+    margin-bottom: 1rem;
+    font-size: 1.75rem;
+  }
+
+  .feature-content p {
+    color: var(--text-light);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+  }
+
+  .benefits-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .benefits-list li {
+    padding: 0.75rem 0 0.75rem 2rem;
+    position: relative;
+    color: var(--text);
+  }
+
+  .benefits-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 1.25rem;
+  }
+
+  .tech-note {
+    background: var(--text);
+    color: white;
+    padding: 4rem 0;
+  }
+
+  .tech-note h2 {
+    color: white;
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .tech-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .tech-card {
+    background: rgba(255,255,255,0.1);
+    padding: 2rem;
+    border-radius: 1rem;
+    backdrop-filter: blur(10px);
+  }
+
+  .tech-card h3 {
+    color: var(--primary);
+    margin-bottom: 1rem;
+  }
+
+  .tech-card p {
+    color: #d1d5db;
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .page-hero h1 {
+      font-size: 2rem;
+    }
+
+    .hero-description {
+      font-size: 1.1rem;
+    }
+
+    .feature-detail,
+    .feature-detail.reverse {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      padding: 2rem;
+    }
+
+    .feature-detail.reverse .feature-image {
+      order: -1;
+    }
+
+    .tech-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

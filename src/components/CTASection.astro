@@ -1,0 +1,84 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  primaryCTA: { text: string; href: string };
+  secondaryCTA?: { text: string; href: string };
+}
+
+const { title, description, primaryCTA, secondaryCTA } = Astro.props;
+---
+
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-content">
+      <h2>{title}</h2>
+      <p>{description}</p>
+      <div class="cta-buttons">
+        <a href={primaryCTA.href} class="btn">{primaryCTA.text}</a>
+        {secondaryCTA && (
+          <a href={secondaryCTA.href} class="btn btn-secondary">{secondaryCTA.text}</a>
+        )}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cta-section {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    color: white;
+    text-align: center;
+  }
+
+  .cta-content h2 {
+    color: white;
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
+  }
+
+  .cta-content p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    opacity: 0.95;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .cta-section .btn {
+    background: white;
+    color: var(--primary);
+    font-size: 1.125rem;
+    padding: 1rem 2rem;
+  }
+
+  .cta-section .btn:hover {
+    background: var(--bg-light);
+    transform: translateY(-3px);
+  }
+
+  .cta-section .btn-secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+  }
+
+  .cta-section .btn-secondary:hover {
+    background: rgba(255,255,255,0.1);
+  }
+
+  @media (max-width: 768px) {
+    .cta-content h2 {
+      font-size: 1.75rem;
+    }
+
+    .cta-content p {
+      font-size: 1.1rem;
+    }
+  }
+</style>

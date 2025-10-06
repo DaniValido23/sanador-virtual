@@ -1,0 +1,656 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CTASection from '../components/CTASection.astro';
+
+const roles = [
+  'Conectar a tu comunidad con servicios de salud accesibles',
+  'Ayudar a pacientes a registrarse y usar la plataforma',
+  'Explicar cómo funciona el triaje y la teleconsulta',
+  'Servir de puente entre médicos y pacientes cuando hay barreras de idioma',
+  'Distribuir materiales educativos sobre salud y prevención',
+  'Recopilar feedback para mejorar el servicio'
+];
+
+const requirements = [
+  'Ser miembro activo de una comunidad rural en Oaxaca',
+  'Compromiso con la salud y bienestar de tu comunidad',
+  'Habilidades básicas con teléfonos celulares',
+  'Capacidad de comunicación en español y/o lenguas indígenas',
+  'Disponibilidad para capacitación inicial (2-3 días)',
+  'Tiempo disponible (flexible, según necesidades de la comunidad)'
+];
+
+const benefitsImages = [
+  { text: 'Capacitación gratuita en salud digital y telemedicina', icon: '/assets/online_doctor.png' },
+  { text: 'Certificación como Promotor de Salud Digital', icon: '/assets/prescription.png' },
+  { text: 'Materiales educativos y de apoyo', icon: '/assets/hospital_wheelchair.png' },
+  { text: 'Soporte continuo del equipo de Sanador Virtual', icon: '/assets/rheumatology.png' },
+  { text: 'Reconocimiento comunitario', icon: '/assets/pediatrician.png' },
+  { text: 'Contribuir directamente a mejorar la salud en tu comunidad', icon: '/assets/doctors.png' }
+];
+---
+
+<BaseLayout
+  title="Promotores de Salud - Sanador Virtual"
+  description="Conviértete en Promotor de Salud Digital. Ayuda a tu comunidad a acceder a servicios médicos de telemedicina. Capacitación gratuita y materiales de apoyo."
+>
+  <Header />
+
+  <section class="page-hero">
+    <div class="container">
+      <h1>Promotores de Salud Comunitarios</h1>
+      <p class="hero-description">
+        Sé el puente entre la tecnología y tu comunidad. Ayuda a que más personas
+        accedan a servicios médicos de calidad sin salir de su hogar.
+      </p>
+    </div>
+  </section>
+
+  <section class="intro">
+    <div class="container">
+      <div class="intro-content">
+        <div class="intro-text">
+          <h2>¿Qué es un Promotor de Salud Digital?</h2>
+          <p>
+            Los promotores de salud han sido siempre la columna vertebral de la salud comunitaria
+            en zonas rurales. Conocen a su comunidad, hablan su idioma y entienden sus necesidades.
+          </p>
+          <p>
+            Como Promotor de Salud Digital, llevarás este rol un paso más allá: ayudarás a tu
+            comunidad a aprovechar la tecnología de telemedicina para mejorar el acceso a servicios
+            médicos profesionales.
+          </p>
+          <p>
+            No necesitas ser médico ni tener conocimientos técnicos avanzados. Te daremos toda la
+            capacitación y herramientas que necesitas.
+          </p>
+        </div>
+        <div class="intro-image">
+          <img src="/assets/promotor.png" alt="Promotores de Salud" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="roles">
+    <div class="container">
+      <h2>¿Qué harías como Promotor?</h2>
+      <div class="roles-grid">
+        {roles.map((role, index) => (
+          <div class="role-card">
+            <div class="role-number">{index + 1}</div>
+            <p>{role}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="requirements">
+    <div class="container">
+      <h2>¿Quién puede ser Promotor?</h2>
+      <p class="section-subtitle">Buscamos personas comprometidas con su comunidad</p>
+      <div class="requirements-grid">
+        {requirements.map(requirement => (
+          <div class="requirement-card">
+            <div class="check-icon">✓</div>
+            <p>{requirement}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="training">
+    <div class="container">
+      <h2>Capacitación para Promotores</h2>
+      <div class="training-content">
+        <div class="training-card">
+          <h3>Módulo 1: Introducción a la Telemedicina</h3>
+          <ul>
+            <li>¿Qué es la telemedicina y cómo funciona?</li>
+            <li>Beneficios para comunidades rurales</li>
+            <li>Privacidad y seguridad de datos médicos</li>
+          </ul>
+        </div>
+        <div class="training-card">
+          <h3>Módulo 2: Uso de la Plataforma</h3>
+          <ul>
+            <li>Cómo registrar pacientes</li>
+            <li>Navegación por la plataforma</li>
+            <li>Agendar y realizar consultas</li>
+            <li>Resolver problemas técnicos comunes</li>
+          </ul>
+        </div>
+        <div class="training-card">
+          <h3>Módulo 3: Comunicación y Soporte</h3>
+          <ul>
+            <li>Cómo explicar el servicio a la comunidad</li>
+            <li>Manejo de expectativas</li>
+            <li>Apoyo en barreras de idioma</li>
+            <li>Cuándo escalar casos complejos</li>
+          </ul>
+        </div>
+        <div class="training-card">
+          <h3>Módulo 4: Salud Preventiva</h3>
+          <ul>
+            <li>Mensajes clave de prevención</li>
+            <li>Identificación de señales de alerta</li>
+            <li>Promoción de hábitos saludables</li>
+            <li>Materiales educativos disponibles</li>
+          </ul>
+        </div>
+      </div>
+      <p class="training-note">
+        <strong>Duración:</strong> 2-3 días de capacitación inicial + soporte continuo<br>
+        <strong>Formato:</strong> Presencial en tu comunidad o región<br>
+        <strong>Costo:</strong> Completamente gratuito
+      </p>
+    </div>
+  </section>
+
+  <section class="materials">
+    <div class="container">
+      <h2>Materiales y Recursos</h2>
+      <p class="section-subtitle">Herramientas para apoyar tu labor comunitaria</p>
+      <div class="materials-grid">
+        <div class="material-card">
+          <h3>Guías Impresas</h3>
+          <p>Manuales paso a paso para pacientes y promotores, disponibles en español y lenguas indígenas.</p>
+        </div>
+        <div class="material-card">
+          <h3>Pósters y Volantes</h3>
+          <p>Materiales visuales para promover el servicio en tu comunidad: clínicas, tiendas, centros comunitarios.</p>
+        </div>
+        <div class="material-card">
+          <h3>Videos Educativos</h3>
+          <p>Videos cortos que explican cómo usar la plataforma, disponibles offline para compartir.</p>
+        </div>
+        <div class="material-card">
+          <h3>Línea de Soporte</h3>
+          <p>Número de WhatsApp exclusivo para promotores donde resolver dudas y reportar problemas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonial-section">
+    <div class="container">
+      <div class="testimonial-large">
+        <img src="/assets/promotora.png" alt="Testimonio" class="testimonial-image" />
+        <div class="testimonial-content">
+          <p class="quote">
+            "Como promotora de salud, he visto cómo esta herramienta transforma el acceso a
+            servicios médicos en mi comunidad. Ya no tenemos que viajar 3 horas para una consulta
+            simple. Estoy orgullosa de ayudar a mi gente."
+          </p>
+          <div class="author">
+            <strong>Rosa María López</strong>
+            <span>Promotora de Salud, San Miguel del Valle</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="join">
+    <div class="container">
+      <div class="join-content">
+        <h2>¿Listo para convertirte en Promotor?</h2>
+        <p>
+          Completa el formulario de contacto indicando tu interés en ser Promotor de Salud Digital.
+          Nos pondremos en contacto contigo para los siguientes pasos.
+        </p>
+        <div class="join-steps">
+          <div class="join-step">
+            <div class="step-num">1</div>
+            <h3>Completa el formulario</h3>
+            <p>Cuéntanos sobre ti y tu comunidad</p>
+          </div>
+          <div class="join-step">
+            <div class="step-num">2</div>
+            <h3>Entrevista inicial</h3>
+            <p>Conversación telefónica sobre el programa</p>
+          </div>
+          <div class="join-step">
+            <div class="step-num">3</div>
+            <h3>Capacitación</h3>
+            <p>2-3 días de formación práctica</p>
+          </div>
+          <div class="join-step">
+            <div class="step-num">4</div>
+            <h3>¡Comienza!</h3>
+            <p>Inicia tu labor con soporte continuo</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTASection
+    title="Sé parte del cambio en tu comunidad"
+    description="Regístrate como Promotor de Salud Digital y ayuda a transformar el acceso a la salud en zonas rurales."
+    primaryCTA={{ text: 'Quiero ser promotor', href: '/contacto' }}
+    secondaryCTA={{ text: 'Más información', href: '/faq' }}
+  />
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .page-hero {
+    background: linear-gradient(135deg, #f3f6fb 0%, #e3ebf6 100%);
+    padding: 5rem 0 4rem;
+    text-align: center;
+  }
+
+  .page-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-description {
+    font-size: 1.25rem;
+    color: var(--text-light);
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.8;
+  }
+
+  .intro {
+    padding: 4rem 0;
+    background: white;
+  }
+
+  .intro-content {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .intro-text h2 {
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+  }
+
+  .intro-text p {
+    color: var(--text-light);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+  }
+
+  .intro-image img {
+    width: 100%;
+    max-width: 400px;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .roles {
+    padding: 4rem 0;
+    background: var(--bg-light);
+  }
+
+  .roles h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .roles-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .role-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  .role-number {
+    flex-shrink: 0;
+    width: 2.5rem;
+    height: 2.5rem;
+    background: var(--primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.125rem;
+  }
+
+  .role-card p {
+    color: var(--text);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  .requirements {
+    padding: 4rem 0;
+    background: white;
+  }
+
+  .requirements h2 {
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .section-subtitle {
+    text-align: center;
+    color: var(--text-light);
+    font-size: 1.125rem;
+    margin-bottom: 3rem;
+  }
+
+  .requirements-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .requirement-card {
+    background: var(--bg-light);
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .check-icon {
+    flex-shrink: 0;
+    width: 2rem;
+    height: 2rem;
+    background: var(--primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+  }
+
+  .requirement-card p {
+    color: var(--text);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .benefits {
+    padding: 4rem 0;
+    background: var(--bg-light);
+  }
+
+  .benefits h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .benefit-item {
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    text-align: center;
+  }
+
+  .benefit-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1rem;
+  }
+
+  .benefit-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .benefit-item p {
+    color: var(--text);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  .training {
+    padding: 4rem 0;
+    background: white;
+  }
+
+  .training h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .training-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .training-card {
+    background: var(--bg-light);
+    padding: 2rem;
+    border-radius: 1rem;
+  }
+
+  .training-card h3 {
+    color: var(--primary);
+    margin-bottom: 1rem;
+    font-size: 1.125rem;
+  }
+
+  .training-card ul {
+    color: var(--text-light);
+    line-height: 1.8;
+    padding-left: 1.5rem;
+  }
+
+  .training-card li {
+    margin-bottom: 0.5rem;
+  }
+
+  .training-note {
+    background: var(--primary);
+    color: white;
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    text-align: center;
+    line-height: 1.8;
+    margin-top: 2rem;
+  }
+
+  .materials {
+    padding: 4rem 0;
+    background: var(--bg-light);
+  }
+
+  .materials h2 {
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .materials-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .material-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  .material-card h3 {
+    color: var(--primary);
+    margin-bottom: 1rem;
+  }
+
+  .material-card p {
+    color: var(--text-light);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  .testimonial-section {
+    padding: 4rem 0;
+    background: var(--text);
+  }
+
+  .testimonial-large {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 3rem;
+    align-items: center;
+    background: white;
+    padding: 3rem;
+    border-radius: 1rem;
+  }
+
+  .testimonial-image {
+    width: 100%;
+    height: auto;
+  }
+
+  .quote {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    color: var(--text);
+    font-style: italic;
+    margin-bottom: 1.5rem;
+  }
+
+  .author {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .author strong {
+    color: var(--text);
+    font-size: 1.125rem;
+  }
+
+  .author span {
+    color: var(--text-light);
+  }
+
+  .join {
+    padding: 4rem 0;
+    background: white;
+  }
+
+  .join-content h2 {
+    text-align: center;
+    color: var(--primary);
+    margin-bottom: 1rem;
+  }
+
+  .join-content > p {
+    text-align: center;
+    color: var(--text-light);
+    font-size: 1.125rem;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    line-height: 1.8;
+  }
+
+  .join-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+
+  .join-step {
+    text-align: center;
+    position: relative;
+  }
+
+  .step-num {
+    width: 3rem;
+    height: 3rem;
+    background: var(--primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 auto 1rem;
+  }
+
+  .join-step h3 {
+    color: var(--text);
+    font-size: 1.125rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .join-step p {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .page-hero h1 {
+      font-size: 2rem;
+    }
+
+    .hero-description {
+      font-size: 1.1rem;
+    }
+
+    .intro-content {
+      grid-template-columns: 1fr;
+    }
+
+    .roles-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .requirements-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .benefits-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .training-content {
+      grid-template-columns: 1fr;
+    }
+
+    .materials-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .testimonial-large {
+      grid-template-columns: 1fr;
+    }
+
+    .join-steps {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

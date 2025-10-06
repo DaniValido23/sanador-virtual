@@ -1,0 +1,64 @@
+---
+interface Props {
+  quote: string;
+  author: string;
+  role: string;
+  community?: string;
+}
+
+const { quote, author, role, community } = Astro.props;
+---
+
+<div class="testimonial">
+  <div class="quote-icon">"</div>
+  <p class="quote">{quote}</p>
+  <div class="author">
+    <strong>{author}</strong>
+    <span>{role}{community ? `, ${community}` : ''}</span>
+  </div>
+</div>
+
+<style>
+  .testimonial {
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    position: relative;
+  }
+
+  .quote-icon {
+    position: absolute;
+    top: 1rem;
+    left: 1.5rem;
+    font-size: 4rem;
+    color: var(--primary);
+    opacity: 0.2;
+    font-family: Georgia, serif;
+    line-height: 1;
+  }
+
+  .quote {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--text);
+    margin: 2rem 0 1.5rem;
+    font-style: italic;
+  }
+
+  .author {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .author strong {
+    color: var(--text);
+    font-size: 1rem;
+  }
+
+  .author span {
+    color: var(--text-light);
+    font-size: 0.9rem;
+  }
+</style>

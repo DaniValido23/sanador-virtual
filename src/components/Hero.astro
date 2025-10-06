@@ -1,0 +1,117 @@
+---
+interface Props {
+  title: string;
+  subtitle: string;
+  ctaPrimary?: { text: string; href: string };
+  ctaSecondary?: { text: string; href: string };
+  image?: string;
+  imageAlt?: string;
+}
+
+const { title, subtitle, ctaPrimary, ctaSecondary, image, imageAlt } = Astro.props;
+---
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1>{title}</h1>
+        <p class="hero-subtitle">{subtitle}</p>
+        <div class="hero-ctas">
+          {ctaPrimary && (
+            <a href={ctaPrimary.href} class="btn">{ctaPrimary.text}</a>
+          )}
+          {ctaSecondary && (
+            <a href={ctaSecondary.href} class="btn btn-secondary">{ctaSecondary.text}</a>
+          )}
+        </div>
+      </div>
+      {image && (
+        <div class="hero-image">
+          <img src={image} alt={imageAlt || ''} loading="eager" />
+        </div>
+      )}
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    background: linear-gradient(135deg, #f3f6fb 0%, #e3ebf6 100%);
+    padding: 5rem 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('/assets/background.png');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.05;
+    z-index: 0;
+  }
+
+  .hero-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-text h1 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    color: var(--text);
+  }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+    color: var(--text-light);
+    margin-bottom: 2rem;
+    line-height: 1.8;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .hero-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 1rem;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      padding: 3rem 0;
+    }
+
+    .hero-content {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .hero-text h1 {
+      font-size: 2rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.1rem;
+    }
+
+    .hero-image {
+      order: -1;
+    }
+  }
+</style>

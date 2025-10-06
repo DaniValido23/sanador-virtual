@@ -1,0 +1,442 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CTASection from '../components/CTASection.astro';
+---
+
+<BaseLayout
+  title="Precios - Sanador Virtual"
+  description="Atención médica accesible para todos. Consultas desde $50 MXN con opciones de convenios y subsidios para comunidades rurales."
+>
+  <Header />
+
+  <section class="page-hero">
+    <div class="container">
+      <h1>Precios Accesibles para Tu Comunidad</h1>
+      <p class="hero-description">
+        Creemos que la salud es un derecho. Por eso ofrecemos precios justos y trabajamos
+        con subsidios y convenios para hacer la telemedicina accesible a todos.
+      </p>
+    </div>
+  </section>
+
+  <section class="pricing">
+    <div class="container">
+      <div class="pricing-grid">
+        <div class="price-card featured">
+          <div class="card-header">
+            <h2>Consulta Individual</h2>
+            <p class="subtitle">Pago por uso</p>
+          </div>
+          <div class="price">
+            <span class="currency">$</span>
+            <span class="amount">50</span>
+            <span class="period">MXN por consulta</span>
+          </div>
+          <ul class="features">
+            <li>Triaje inteligente por IA</li>
+            <li>Teleconsulta con médico certificado</li>
+            <li>Receta digital</li>
+            <li>Historia clínica segura</li>
+            <li>Seguimiento de tratamiento</li>
+            <li>Soporte en tu idioma</li>
+          </ul>
+          <a href="/contacto" class="btn">Solicitar información</a>
+          <p class="note">* Precio objetivo sujeto a confirmación en piloto</p>
+        </div>
+
+        <div class="price-card">
+          <div class="card-header">
+            <h2>Clínicas y Centros de Salud</h2>
+            <p class="subtitle">Suscripción B2B</p>
+          </div>
+          <div class="price">
+            <span class="amount">Personalizado</span>
+          </div>
+          <ul class="features">
+            <li>Todo lo del plan individual</li>
+            <li>Panel de administración</li>
+            <li>Múltiples usuarios</li>
+            <li>Reportes y estadísticas</li>
+            <li>Soporte prioritario</li>
+            <li>Capacitación del personal</li>
+            <li>Integración con sistemas existentes</li>
+          </ul>
+          <a href="/clinicas" class="btn btn-secondary">Más información</a>
+        </div>
+
+        <div class="price-card">
+          <div class="card-header">
+            <h2>Programas Comunitarios</h2>
+            <p class="subtitle">Convenios y subsidios</p>
+          </div>
+          <div class="price">
+            <span class="amount">Subsidiado</span>
+          </div>
+          <ul class="features">
+            <li>Acceso gratuito o reducido</li>
+            <li>Para comunidades prioritarias</li>
+            <li>Apoyo de instituciones</li>
+            <li>Capacitación de promotores</li>
+            <li>Materiales educativos</li>
+            <li>Seguimiento comunitario</li>
+          </ul>
+          <a href="/contacto" class="btn btn-secondary">Contactar</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pricing-info">
+    <div class="container">
+      <h2>Información sobre Precios</h2>
+
+      <div class="info-grid">
+        <div class="info-card">
+          <h3>Compromiso con la Accesibilidad</h3>
+          <p>
+            Nuestro objetivo es que ninguna persona deje de recibir atención médica por cuestiones económicas.
+            Trabajamos con subsidios gubernamentales y ONGs para ampliar el acceso.
+          </p>
+        </div>
+
+        <div class="info-card">
+          <h3>Precios Sujetos a Piloto</h3>
+          <p>
+            Estamos en fase piloto y los precios finales se confirmarán según los costos operativos reales,
+            subsidios disponibles y feedback de la comunidad. Nuestro compromiso es mantenerlos accesibles.
+          </p>
+        </div>
+
+        <div class="info-card">
+          <h3>Convenios Institucionales</h3>
+          <p>
+            Buscamos activamente alianzas con IMSS-Bienestar, Secretaría de Salud de Oaxaca (SSO),
+            gobiernos municipales y ONGs para ofrecer el servicio de forma gratuita o subsidiada.
+          </p>
+        </div>
+
+        <div class="info-card">
+          <h3>Sin Costos Ocultos</h3>
+          <p>
+            El precio incluye todo: triaje, consulta, receta digital e historia clínica.
+            No hay cobros adicionales ni sorpresas. Pagas solo lo que usas.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="comparison">
+    <div class="container">
+      <h2>Comparación de Costos</h2>
+      <p class="section-subtitle">¿Por qué Sanador Virtual es más accesible?</p>
+
+      <div class="comparison-table">
+        <div class="comparison-row header">
+          <div class="cell">Concepto</div>
+          <div class="cell">Consulta Tradicional</div>
+          <div class="cell highlight">Sanador Virtual</div>
+        </div>
+        <div class="comparison-row">
+          <div class="cell">Costo de consulta</div>
+          <div class="cell">$300 - $800 MXN</div>
+          <div class="cell highlight">~$50 MXN</div>
+        </div>
+        <div class="comparison-row">
+          <div class="cell">Transporte</div>
+          <div class="cell">$100 - $500 MXN</div>
+          <div class="cell highlight">$0 MXN</div>
+        </div>
+        <div class="comparison-row">
+          <div class="cell">Tiempo de traslado</div>
+          <div class="cell">2-4 horas</div>
+          <div class="cell highlight">0 horas</div>
+        </div>
+        <div class="comparison-row">
+          <div class="cell">Tiempo de espera</div>
+          <div class="cell">1-3 horas</div>
+          <div class="cell highlight">Minutos</div>
+        </div>
+        <div class="comparison-row totals">
+          <div class="cell"><strong>Costo total estimado</strong></div>
+          <div class="cell"><strong>$400 - $1,300 MXN</strong></div>
+          <div class="cell highlight"><strong>~$50 MXN</strong></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTASection
+    title="¿Listo para unirte?"
+    description="Contáctanos para más información sobre precios, convenios o programas comunitarios."
+    primaryCTA={{ text: 'Solicitar información', href: '/contacto' }}
+    secondaryCTA={{ text: '¿Eres clínica?', href: '/clinicas' }}
+  />
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .page-hero {
+    background: linear-gradient(135deg, #f3f6fb 0%, #e3ebf6 100%);
+    padding: 5rem 0 4rem;
+    text-align: center;
+  }
+
+  .page-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-description {
+    font-size: 1.25rem;
+    color: var(--text-light);
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.8;
+  }
+
+  .pricing {
+    padding: 4rem 0;
+    background: var(--bg-light);
+  }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .price-card {
+    background: white;
+    border-radius: 1rem;
+    padding: 2.5rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .price-card.featured {
+    border: 3px solid var(--primary);
+    transform: scale(1.05);
+    box-shadow: 0 8px 24px rgba(22, 163, 74, 0.2);
+  }
+
+  .card-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .card-header h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--text);
+  }
+
+  .subtitle {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin: 0;
+  }
+
+  .price {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 1.5rem 0;
+    border-top: 2px solid var(--border);
+    border-bottom: 2px solid var(--border);
+  }
+
+  .currency {
+    font-size: 1.5rem;
+    color: var(--primary);
+    font-weight: 700;
+    vertical-align: super;
+  }
+
+  .amount {
+    font-size: 3rem;
+    color: var(--primary);
+    font-weight: 700;
+  }
+
+  .period {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-top: 0.5rem;
+  }
+
+  .features {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 2rem;
+    flex-grow: 1;
+  }
+
+  .features li {
+    padding: 0.75rem 0;
+    position: relative;
+    padding-left: 2rem;
+    color: var(--text);
+  }
+
+  .features li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+    font-weight: 700;
+  }
+
+  .note {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    text-align: center;
+    margin-top: 1rem;
+    font-style: italic;
+  }
+
+  .pricing-info {
+    padding: 4rem 0;
+  }
+
+  .pricing-info h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .info-card {
+    background: var(--bg-light);
+    padding: 2rem;
+    border-radius: 1rem;
+  }
+
+  .info-card h3 {
+    color: var(--primary);
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+  }
+
+  .info-card p {
+    color: var(--text-light);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  .comparison {
+    padding: 4rem 0;
+    background: var(--bg-light);
+  }
+
+  .comparison h2 {
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .section-subtitle {
+    text-align: center;
+    color: var(--text-light);
+    font-size: 1.125rem;
+    margin-bottom: 3rem;
+  }
+
+  .comparison-table {
+    background: white;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  }
+
+  .comparison-row {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .comparison-row:last-child {
+    border-bottom: none;
+  }
+
+  .comparison-row.header {
+    background: var(--text);
+  }
+
+  .comparison-row.header .cell {
+    color: white;
+    font-weight: 700;
+  }
+
+  .comparison-row.totals {
+    background: var(--bg-light);
+  }
+
+  .cell {
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-right: 1px solid var(--border);
+  }
+
+  .cell:last-child {
+    border-right: none;
+  }
+
+  .cell:first-child {
+    justify-content: flex-start;
+    text-align: left;
+  }
+
+  .cell.highlight {
+    background: rgba(22, 163, 74, 0.05);
+    color: var(--primary);
+    font-weight: 600;
+  }
+
+  @media (max-width: 768px) {
+    .page-hero h1 {
+      font-size: 2rem;
+    }
+
+    .hero-description {
+      font-size: 1.1rem;
+    }
+
+    .pricing-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .price-card.featured {
+      transform: none;
+    }
+
+    .info-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .comparison-row {
+      grid-template-columns: 1fr;
+    }
+
+    .cell {
+      border-right: none;
+      border-bottom: 1px solid var(--border);
+      justify-content: flex-start;
+      text-align: left;
+    }
+
+    .cell:last-child {
+      border-bottom: none;
+    }
+  }
+</style>

@@ -1,0 +1,468 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CTASection from '../components/CTASection.astro';
+
+const benefits = [
+  {
+    title: 'Amplía tu Alcance',
+    description: 'Atiende a más pacientes sin necesidad de que se trasladen físicamente. Reduce listas de espera y mejora el acceso a la salud.',
+    icon: '/assets/hospital2.png'
+  },
+  {
+    title: 'Reduce Costos Operativos',
+    description: 'Menos traslados innecesarios y uso más eficiente del personal médico. Optimiza recursos y mejora la sostenibilidad.',
+    icon: '/assets/hospital3.png'
+  },
+  {
+    title: 'Historiales Digitales',
+    description: 'Sistema de historias clínicas digitales seguras y fáciles de gestionar. Acceso rápido a información del paciente.',
+    icon: '/assets/hospital1.png'
+  },
+  {
+    title: 'Funciona con Baja Conectividad',
+    description: 'Diseñado específicamente para zonas rurales con conexión intermitente. No necesitas infraestructura de red costosa.',
+    icon: '/assets/online.png'
+  }
+];
+
+const faqs = [
+  {
+    question: '¿Qué requisitos técnicos necesitamos?',
+    answer: 'Requisitos mínimos: conexión a internet (puede ser intermitente), dispositivos Android/iOS o computadora. No se requiere infraestructura sofisticada.'
+  },
+  {
+    question: '¿Cuánto tiempo toma implementar el sistema?',
+    answer: 'El piloto se puede iniciar en 2-4 semanas. Incluye capacitación del personal y configuración del sistema adaptado a las necesidades de tu clínica.'
+  },
+  {
+    question: '¿El personal médico necesita capacitación especial?',
+    answer: 'Sí, pero es breve y práctica. Ofrecemos capacitación de 1-2 días enfocada en el uso de la plataforma y mejores prácticas de telemedicina.'
+  },
+  {
+    question: '¿Cómo funciona el modelo de precios para clínicas?',
+    answer: 'Ofrecemos planes personalizados según el tamaño de la clínica, número de consultas y tipo de alianza. Hay opciones subsidiadas para clínicas comunitarias.'
+  },
+  {
+    question: '¿Qué pasa si adoptamos el sistema y no funciona?',
+    answer: 'El piloto inicial (3-6 meses) permite evaluar si la solución funciona para tu clínica sin compromiso a largo plazo. Si no ves beneficios, puedes discontinuar.'
+  }
+];
+---
+
+<BaseLayout
+  title="Para Clínicas - Sanador Virtual"
+  description="Amplía el alcance de tu clínica rural con telemedicina accesible. Reduce traslados, optimiza recursos y mejora el acceso a la salud en tu comunidad."
+>
+  <Header />
+
+  <section class="page-hero">
+    <div class="container">
+      <h1>Transforma Tu Clínica con Telemedicina</h1>
+      <p class="hero-description">
+        Lleva servicios médicos especializados a tu comunidad sin necesidad de infraestructura costosa.
+        Diseñado para clínicas y centros de salud rurales.
+      </p>
+    </div>
+  </section>
+
+  <section class="benefits">
+    <div class="container">
+      <h2>Beneficios para Tu Clínica</h2>
+      <div class="benefits-grid">
+        {benefits.map(benefit => (
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <img src={benefit.icon} alt={benefit.title} />
+            </div>
+            <h3>{benefit.title}</h3>
+            <p>{benefit.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="use-cases">
+    <div class="container">
+      <h2>Casos de Uso para Tu Clínica</h2>
+      <div class="cases-grid">
+        <div class="case-card">
+          <h3>Consultas de Seguimiento</h3>
+          <p>
+            Realiza seguimiento remoto de pacientes crónicos sin que tengan que trasladarse.
+            Ideal para diabetes, hipertensión y tratamientos continuos.
+          </p>
+        </div>
+        <div class="case-card">
+          <h3>Segunda Opinión Médica</h3>
+          <p>
+            Conecta con especialistas en ciudades para casos complejos.
+            Tus pacientes reciben atención especializada sin salir de la comunidad.
+          </p>
+        </div>
+        <div class="case-card">
+          <h3>Triaje y Priorización</h3>
+          <p>
+            El sistema de IA ayuda a identificar urgencias y priorizar casos.
+            Optimiza el uso del tiempo médico disponible.
+          </p>
+        </div>
+        <div class="case-card">
+          <h3>Atención Nocturna y Fines de Semana</h3>
+          <p>
+            Extiende tu disponibilidad con consultas remotas fuera del horario regular.
+            Mejora el acceso sin aumentar carga operativa.
+          </p>
+        </div>
+        <div class="case-card">
+          <h3>Programas Preventivos</h3>
+          <p>
+            Implementa programas de salud preventiva y educación a distancia.
+            Llega a más personas con mensajes de salud importantes.
+          </p>
+        </div>
+        <div class="case-card">
+          <h3>Reducción de Traslados</h3>
+          <p>
+            Evita traslados innecesarios a centros urbanos. Ahorra tiempo y dinero
+            a tus pacientes mientras mejoras la eficiencia de tu clínica.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="connectivity">
+    <div class="container">
+      <h2>Conectividad en Zonas Rurales</h2>
+      <div class="connectivity-grid">
+        <div class="connectivity-card">
+          <h3>Conexión Estable</h3>
+          <p><strong>Lo ideal:</strong> Internet estable para videoconsultas fluidas.</p>
+          <p>Funcionalidades completas: video HD, sincronización instantánea, acceso a todos los servicios.</p>
+        </div>
+        <div class="connectivity-card">
+          <h3>Conexión Intermitente</h3>
+          <p><strong>Funciona igual:</strong> Sistema offline-first adaptativo.</p>
+          <p>
+            Los datos se guardan localmente y se sincronizan cuando hay señal.
+            Consultas por voz o chat como alternativas al video.
+          </p>
+        </div>
+        <div class="connectivity-card">
+          <h3>Conexión Muy Limitada</h3>
+          <p><strong>También es posible:</strong> Modo ultra-lite con consumo mínimo.</p>
+          <p>
+            Prioriza consultas por texto y mensajes. El sistema se adapta automáticamente
+            a las condiciones de red disponibles.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pilot">
+    <div class="container">
+      <div class="pilot-content">
+        <div class="pilot-text">
+          <h2>Programa Piloto para Clínicas</h2>
+          <p>
+            Estamos buscando clínicas rurales para participar en nuestro programa piloto.
+            Es una oportunidad para probar la plataforma sin riesgo y dar feedback que
+            nos ayude a mejorar el servicio.
+          </p>
+          <h3>¿Qué incluye el piloto?</h3>
+          <ul>
+            <li>Acceso completo a la plataforma por 3-6 meses</li>
+            <li>Capacitación del personal médico y administrativo</li>
+            <li>Soporte técnico dedicado</li>
+            <li>Configuración personalizada según necesidades</li>
+            <li>Evaluación conjunta de resultados</li>
+            <li>Sin compromiso de continuidad si no funciona</li>
+          </ul>
+          <h3>Lo que pedimos:</h3>
+          <ul>
+            <li>Participación activa durante el piloto</li>
+            <li>Feedback honesto sobre la experiencia</li>
+            <li>Datos de uso (anónimos) para mejorar el servicio</li>
+            <li>Compromiso de 3-6 meses de prueba</li>
+          </ul>
+        </div>
+        <div class="pilot-image">
+          <img src="/assets/ginecology.png" alt="Programa Piloto" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq">
+    <div class="container">
+      <h2>Preguntas Frecuentes para Clínicas</h2>
+      <div class="faq-list">
+        {faqs.map(faq => (
+          <div class="faq-item">
+            <h3>{faq.question}</h3>
+            <p>{faq.answer}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTASection
+    title="¿Lista tu clínica para el cambio?"
+    description="Contáctanos para una demostración personalizada y conocer cómo Sanador Virtual puede transformar la atención en tu comunidad."
+    primaryCTA={{ text: 'Solicitar demostración', href: '/contacto' }}
+    secondaryCTA={{ text: 'Ver características', href: '/caracteristicas' }}
+  />
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .page-hero {
+    background: linear-gradient(135deg, #f3f6fb 0%, #e3ebf6 100%);
+    padding: 5rem 0 4rem;
+    text-align: center;
+  }
+
+  .page-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-description {
+    font-size: 1.25rem;
+    color: var(--text-light);
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.8;
+  }
+
+  .benefits {
+    padding: 4rem 0;
+    background: white;
+  }
+
+  .benefits h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .benefit-card {
+    background: var(--bg-light);
+    padding: 2.5rem;
+    border-radius: 1rem;
+    text-align: center;
+  }
+
+  .benefit-icon {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 1.5rem;
+  }
+
+  .benefit-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .benefit-card h3 {
+    color: var(--primary);
+    margin-bottom: 1rem;
+  }
+
+  .benefit-card p {
+    color: var(--text-light);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  .use-cases {
+    padding: 4rem 0;
+    background: var(--bg-light);
+  }
+
+  .use-cases h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .cases-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .case-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  .case-card h3 {
+    color: var(--primary);
+    margin-bottom: 1rem;
+    font-size: 1.125rem;
+  }
+
+  .case-card p {
+    color: var(--text-light);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  .connectivity {
+    padding: 4rem 0;
+    background: white;
+  }
+
+  .connectivity h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .connectivity-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .connectivity-card {
+    background: var(--bg-light);
+    padding: 2rem;
+    border-radius: 1rem;
+    border-top: 4px solid var(--primary);
+  }
+
+  .connectivity-card h3 {
+    color: var(--text);
+    margin-bottom: 1rem;
+  }
+
+  .connectivity-card p {
+    color: var(--text-light);
+    line-height: 1.7;
+    margin: 0.5rem 0;
+  }
+
+  .connectivity-card strong {
+    color: var(--primary);
+  }
+
+  .pilot {
+    padding: 4rem 0;
+    background: var(--bg-light);
+  }
+
+  .pilot-content {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .pilot-text h2 {
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+  }
+
+  .pilot-text h3 {
+    color: var(--text);
+    font-size: 1.25rem;
+    margin: 2rem 0 1rem;
+  }
+
+  .pilot-text p {
+    color: var(--text-light);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+  }
+
+  .pilot-text ul {
+    color: var(--text-light);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+  }
+
+  .pilot-text li {
+    margin-bottom: 0.5rem;
+  }
+
+  .pilot-image img {
+    width: 100%;
+    max-width: 400px;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .faq {
+    padding: 4rem 0;
+    background: white;
+  }
+
+  .faq h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .faq-list {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .faq-item {
+    background: var(--bg-light);
+    padding: 2rem;
+    border-radius: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .faq-item h3 {
+    color: var(--primary);
+    margin-bottom: 1rem;
+    font-size: 1.125rem;
+  }
+
+  .faq-item p {
+    color: var(--text-light);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .page-hero h1 {
+      font-size: 2rem;
+    }
+
+    .hero-description {
+      font-size: 1.1rem;
+    }
+
+    .benefits-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .cases-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .connectivity-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .pilot-content {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

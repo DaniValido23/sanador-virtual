@@ -1,0 +1,363 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CTASection from '../components/CTASection.astro';
+
+const faqs = [
+  {
+    category: 'Sobre el Servicio',
+    questions: [
+      {
+        q: '¿Qué es Sanador Virtual?',
+        a: 'Sanador Virtual es una plataforma de telemedicina diseñada específicamente para comunidades rurales de Oaxaca. Conectamos pacientes con médicos certificados a través de consultas remotas, con tecnología adaptada para funcionar con conectividad limitada y soporte en lenguas indígenas.'
+      },
+      {
+        q: '¿Cómo funciona el servicio?',
+        a: 'El proceso es simple: 1) Respondes preguntas sobre tus síntomas (triaje inteligente), 2) Nuestro sistema te conecta con el médico adecuado, 3) Realizas la teleconsulta por video, voz o chat, 4) Recibes tu receta digital y seguimiento. Todo desde tu celular.'
+      },
+      {
+        q: '¿Cuánto cuesta?',
+        a: 'Nuestro objetivo es mantener las consultas en menos de $50 MXN. Trabajamos con subsidios y convenios para hacer el servicio aún más accesible. Durante el piloto, el precio exacto se confirmará según costos operativos y financiamiento disponible.'
+      },
+      {
+        q: '¿Está disponible ahora mismo?',
+        a: 'Estamos en fase piloto en comunidades seleccionadas de Oaxaca. Si quieres que tu comunidad participe en el piloto, contáctanos a través del formulario en esta web.'
+      }
+    ]
+  },
+  {
+    category: 'Conectividad e Internet',
+    questions: [
+      {
+        q: '¿Necesito internet constante?',
+        a: 'No. Sanador Virtual está diseñado para funcionar con conexión intermitente. Los datos se guardan localmente en tu celular y se sincronizan automáticamente cuando hay señal. Puedes iniciar procesos sin conexión y completarlos cuando tengas internet.'
+      },
+      {
+        q: '¿Qué pasa si no tengo señal durante una consulta?',
+        a: 'Si la videollamada se corta, el sistema automáticamente cambia a llamada de voz o chat. Tu consulta continúa sin perder información. El historial se guarda en tu dispositivo hasta que puedas sincronizarlo.'
+      },
+      {
+        q: '¿Cuántos datos consume?',
+        a: 'Muy poco. Una consulta completa (triaje + videollamada de 15 minutos) consume aproximadamente 10 MB. Hemos optimizado todo para minimizar el uso de datos. También ofrecemos modo solo-texto que consume menos de 1 MB.'
+      },
+      {
+        q: '¿Funciona en celulares básicos?',
+        a: 'Sí. Funciona en cualquier smartphone con Android 8+ o iOS 12+, incluso modelos básicos. No necesitas un celular caro o de última generación.'
+      }
+    ]
+  },
+  {
+    category: 'Idiomas y Cultura',
+    questions: [
+      {
+        q: '¿Está disponible en lenguas indígenas?',
+        a: 'Estamos trabajando activamente en soporte para zapoteco, mixteco y otras lenguas de Oaxaca. Durante el piloto, ofrecemos intérpretes para casos donde el paciente y médico no comparten idioma. La interfaz ya está disponible en español.'
+      },
+      {
+        q: '¿Los médicos entienden el contexto cultural de mi comunidad?',
+        a: 'Trabajamos con médicos sensibilizados sobre las realidades de comunidades rurales e indígenas. Además, los promotores de salud locales actúan como puente cultural cuando es necesario.'
+      },
+      {
+        q: '¿Puedo pedir ayuda en mi idioma?',
+        a: 'Sí. Los promotores de salud comunitarios hablan las lenguas locales y pueden ayudarte a usar la plataforma y comunicarte con los médicos.'
+      }
+    ]
+  },
+  {
+    category: 'Privacidad y Seguridad',
+    questions: [
+      {
+        q: '¿Mi información médica está segura?',
+        a: 'Absolutamente. Usamos cifrado de punta a punta para todas las comunicaciones. Tu historia clínica se guarda de forma segura y solo tú y tus médicos autorizados pueden acceder a ella. Cumplimos con las normativas mexicanas de protección de datos de salud.'
+      },
+      {
+        q: '¿Quién puede ver mi información?',
+        a: 'Solo tú y los médicos que te atienden tienen acceso a tu información médica completa. Nadie más, ni siquiera los promotores de salud, pueden ver tus datos sin tu autorización explícita.'
+      },
+      {
+        q: '¿Puedo borrar mi información?',
+        a: 'Sí, tienes derecho a solicitar la eliminación de tus datos en cualquier momento, sujeto a las regulaciones de salud que requieren conservar ciertos registros médicos por periodos específicos.'
+      }
+    ]
+  },
+  {
+    category: 'Médicos y Atención',
+    questions: [
+      {
+        q: '¿Los médicos están certificados?',
+        a: 'Sí. Todos los médicos en nuestra plataforma son profesionales certificados con cédula profesional vigente. Están acreditados para ejercer la medicina en México y tienen experiencia en telemedicina.'
+      },
+      {
+        q: '¿Qué especialidades están disponibles?',
+        a: 'Actualmente ofrecemos medicina general, pediatría y ginecología. Estamos ampliando continuamente según las necesidades de las comunidades.'
+      },
+      {
+        q: '¿Puedo elegir mi médico?',
+        a: 'El sistema de triaje te conecta con el especialista más adecuado según tus síntomas. Con el tiempo, podrás solicitar seguimiento con el mismo médico si lo prefieres.'
+      },
+      {
+        q: '¿Qué pasa en una emergencia?',
+        a: 'El triaje identifica emergencias médicas y te indica que debes acudir inmediatamente a un centro de salud o llamar a emergencias (911). Sanador Virtual complementa, no reemplaza, la atención de emergencias.'
+      }
+    ]
+  },
+  {
+    category: 'Recetas y Tratamientos',
+    questions: [
+      {
+        q: '¿Recibiré receta médica?',
+        a: 'Sí. Si el médico determina que necesitas medicamento, recibirás una receta digital válida que puedes presentar en cualquier farmacia. También quedará guardada en tu historia clínica.'
+      },
+      {
+        q: '¿Puedo comprar medicinas con la receta digital?',
+        a: 'Sí. Las recetas digitales tienen la misma validez legal que las recetas en papel. Puedes presentarlas en farmacias de tu comunidad o región.'
+      },
+      {
+        q: '¿Hacen seguimiento de mi tratamiento?',
+        a: 'Sí. El sistema te enviará recordatorios para tomar medicamentos y agendar consultas de seguimiento. Tu médico puede revisar tu progreso a través de la plataforma.'
+      }
+    ]
+  }
+];
+---
+
+<BaseLayout
+  title="Preguntas Frecuentes - Sanador Virtual"
+  description="Respuestas a las preguntas más comunes sobre Sanador Virtual: conectividad, privacidad, idiomas, médicos certificados y más."
+>
+  <Header />
+
+  <section class="page-hero">
+    <div class="container">
+      <div class="hero-content">
+        <div>
+          <h1>Preguntas Frecuentes</h1>
+          <p class="hero-description">
+            Encuentra respuestas a las dudas más comunes sobre cómo funciona Sanador Virtual,
+            privacidad, conectividad y más.
+          </p>
+        </div>
+        <div class="hero-image">
+          <img src="/assets/faq.png" alt="Preguntas Frecuentes" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-content">
+    <div class="container">
+      {faqs.map(category => (
+        <div class="faq-category">
+          <h2>{category.category}</h2>
+          <div class="questions-list">
+            {category.questions.map(item => (
+              <details class="faq-item">
+                <summary>{item.q}</summary>
+                <div class="answer">
+                  <p>{item.a}</p>
+                </div>
+              </details>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="more-questions">
+    <div class="container">
+      <div class="more-questions-content">
+        <h2>¿No encontraste tu respuesta?</h2>
+        <p>
+          Si tienes más preguntas o necesitas información específica sobre tu situación,
+          no dudes en contactarnos. Estamos aquí para ayudarte.
+        </p>
+        <a href="/contacto" class="btn">Contáctanos</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .page-hero {
+    background: linear-gradient(135deg, #f3f6fb 0%, #e3ebf6 100%);
+    padding: 5rem 0 4rem;
+  }
+
+  .hero-content {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .page-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-description {
+    font-size: 1.25rem;
+    color: var(--text-light);
+    line-height: 1.8;
+  }
+
+  .hero-image img {
+    width: 100%;
+    max-width: 400px;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .faq-content {
+    padding: 4rem 0;
+    background: white;
+  }
+
+  .faq-category {
+    margin-bottom: 4rem;
+  }
+
+  .faq-category:last-child {
+    margin-bottom: 0;
+  }
+
+  .faq-category h2 {
+    color: var(--primary);
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 3px solid var(--primary);
+  }
+
+  .questions-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .faq-item {
+    background: var(--bg-light);
+    border-radius: 0.75rem;
+    overflow: hidden;
+    transition: all 0.2s;
+  }
+
+  .faq-item:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  }
+
+  .faq-item summary {
+    padding: 1.5rem;
+    font-weight: 600;
+    color: var(--text);
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+  }
+
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-item summary::after {
+    content: '+';
+    font-size: 1.5rem;
+    color: var(--primary);
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-left: 1rem;
+    transition: transform 0.2s;
+  }
+
+  .faq-item[open] summary::after {
+    transform: rotate(45deg);
+  }
+
+  .faq-item[open] {
+    background: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  }
+
+  .answer {
+    padding: 0 1.5rem 1.5rem 1.5rem;
+    animation: fadeIn 0.3s;
+  }
+
+  .answer p {
+    color: var(--text-light);
+    line-height: 1.8;
+    margin: 0;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .more-questions {
+    background: var(--primary);
+    color: white;
+    padding: 4rem 0;
+  }
+
+  .more-questions-content {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .more-questions h2 {
+    color: white;
+    margin-bottom: 1rem;
+  }
+
+  .more-questions p {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    opacity: 0.95;
+  }
+
+  .more-questions .btn {
+    background: white;
+    color: var(--primary);
+  }
+
+  .more-questions .btn:hover {
+    background: var(--bg-light);
+  }
+
+  @media (max-width: 768px) {
+    .hero-content {
+      grid-template-columns: 1fr;
+    }
+
+    .page-hero h1 {
+      font-size: 2rem;
+    }
+
+    .hero-description {
+      font-size: 1.1rem;
+    }
+
+    .hero-image {
+      order: -1;
+    }
+
+    .faq-item summary {
+      font-size: 0.95rem;
+    }
+  }
+</style>

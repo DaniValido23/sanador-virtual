@@ -1,0 +1,196 @@
+---
+const navItems = [
+  { href: '/', label: 'Inicio' },
+  { href: '/caracteristicas', label: 'Características' },
+  { href: '/precios', label: 'Precios' },
+  { href: '/clinicas', label: 'Clínicas' },
+  { href: '/promotores', label: 'Promotores' },
+  { href: '/faq', label: 'FAQ' },
+  { href: '/contacto', label: 'Contacto' }
+];
+---
+
+<header>
+  <nav class="container">
+    <div class="nav-wrapper">
+      <a href="/" class="logo">
+        <img src="/assets/icon.png" alt="Sanador Virtual" />
+        <span class="logo-text">Sanador Virtual</span>
+      </a>
+
+      <button class="mobile-toggle" aria-label="Toggle menu" id="mobile-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav-links" id="nav-links">
+        {navItems.map(item => (
+          <li><a href={item.href}>{item.label}</a></li>
+        ))}
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<style>
+  header {
+    background: white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .nav-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+  }
+
+  .logo img {
+    height: 45px;
+    width: 45px;
+    object-fit: cover;
+    animation: logoSlideIn 0.6s ease-out;
+    transition: transform 0.3s ease;
+  }
+
+  .logo-text {
+    font-family: 'Playfair Display', 'Georgia', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.02em;
+    animation: textFadeIn 0.8s ease-out 0.2s backwards;
+  }
+
+  .logo:hover .logo-text {
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .logo:hover img {
+    transform: scale(1.05);
+  }
+
+  @keyframes logoSlideIn {
+    from {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes textFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .mobile-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    background: none;
+    padding: 0.1rem;
+    cursor: pointer;
+  }
+
+  .mobile-toggle span {
+    display: block;
+    width: 24px;
+    height: 3px;
+    background: var(--text);
+    border-radius: 2px;
+    transition: 0.3s;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--text);
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover {
+    color: var(--primary);
+  }
+
+  @media (max-width: 768px) {
+    .logo img {
+      height: 40px;
+      width: 40px;
+    }
+
+    .logo-text {
+      font-size: 1.25rem;
+    }
+
+    .logo {
+      gap: 0.75rem;
+    }
+
+    .mobile-toggle {
+      display: flex;
+    }
+
+    .nav-links {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: white;
+      flex-direction: column;
+      gap: 0;
+      padding: 1rem 0;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s;
+    }
+
+    .nav-links.active {
+      max-height: 500px;
+    }
+
+    .nav-links li {
+      padding: 0.75rem 1.5rem;
+    }
+  }
+</style>
+
+<script>
+  const toggle = document.getElementById('mobile-toggle');
+  const navLinks = document.getElementById('nav-links');
+
+  toggle?.addEventListener('click', () => {
+    navLinks?.classList.toggle('active');
+  });
+</script>

@@ -1,0 +1,123 @@
+---
+const steps = [
+  {
+    number: 1,
+    title: 'Triaje Inteligente',
+    description: 'Responde preguntas sencillas sobre tus síntomas. Nuestra IA evalúa la urgencia y te conecta con el especialista adecuado.',
+    icon: '/assets/prescription.png'
+  },
+  {
+    number: 2,
+    title: 'Teleconsulta',
+    description: 'Habla con un médico certificado desde tu celular. Funciona incluso con conexión intermitente.',
+    icon: '/assets/online_doctor.png'
+  },
+  {
+    number: 3,
+    title: 'Seguimiento',
+    description: 'Tu historia clínica se guarda de forma segura. Recibe recordatorios y seguimiento de tu tratamiento.',
+    icon: '/assets/hospital_wheelchair.png'
+  }
+];
+---
+
+<section class="how-it-works">
+  <div class="container">
+    <h2>¿Cómo funciona?</h2>
+    <p class="section-subtitle">Accede a atención médica en 3 pasos simples</p>
+
+    <div class="steps-grid">
+      {steps.map(step => (
+        <div class="step">
+          <div class="step-number">{step.number}</div>
+          <div class="step-icon">
+            <img src={step.icon} alt={step.title} />
+          </div>
+          <h3>{step.title}</h3>
+          <p>{step.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .how-it-works {
+    background: var(--bg-light);
+  }
+
+  .how-it-works h2 {
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .section-subtitle {
+    text-align: center;
+    color: var(--text-light);
+    font-size: 1.125rem;
+    margin-bottom: 3rem;
+  }
+
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .step {
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  .step-number {
+    position: absolute;
+    top: -1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 3rem;
+    height: 3rem;
+    background: var(--primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    box-shadow: 0 4px 12px rgba(83, 116, 189, 0.3);
+  }
+
+  .step-icon {
+    width: 100px;
+    height: 100px;
+    margin: 2rem auto 1.5rem;
+  }
+
+  .step-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .step h3 {
+    color: var(--text);
+    margin-bottom: 1rem;
+  }
+
+  .step p {
+    color: var(--text-light);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .steps-grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+  }
+</style>

@@ -1,0 +1,458 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout
+  title="Contacto - Sanador Virtual"
+  description="Contáctanos para unirte al piloto, información sobre el servicio, alianzas institucionales o consultas generales."
+>
+  <Header />
+
+  <section class="page-hero">
+    <div class="container">
+      <h1>Contacto</h1>
+      <p class="hero-description">
+        ¿Tienes preguntas? ¿Quieres participar en el piloto? ¿Buscas una alianza?
+        Estamos aquí para ayudarte.
+      </p>
+    </div>
+  </section>
+
+  <section class="contact-content">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-form-section">
+          <h2>Envíanos un Mensaje</h2>
+          <form class="contact-form" id="contact-form">
+            <div class="form-group">
+              <label for="interest">¿Cuál es tu interés?</label>
+              <select id="interest" name="interest" required>
+                <option value="">Selecciona una opción</option>
+                <option value="paciente">Soy paciente / Quiero unirme al piloto</option>
+                <option value="clinica">Represento una clínica</option>
+                <option value="promotor">Quiero ser promotor de salud</option>
+                <option value="alianza">Alianzas institucionales</option>
+                <option value="prensa">Prensa / Medios</option>
+                <option value="otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Nombre completo *</label>
+                <input type="text" id="name" name="name" required />
+              </div>
+
+              <div class="form-group">
+                <label for="email">Correo electrónico *</label>
+                <input type="email" id="email" name="email" required />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="phone">Teléfono / WhatsApp</label>
+                <input type="tel" id="phone" name="phone" />
+              </div>
+
+              <div class="form-group">
+                <label for="community">Comunidad / Municipio</label>
+                <input type="text" id="community" name="community" placeholder="Ej: San Pedro el Alto" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="language">Idioma(s) que hablas</label>
+              <input type="text" id="language" name="language" placeholder="Ej: Español, Zapoteco" />
+            </div>
+
+            <div class="form-group">
+              <label for="message">Mensaje *</label>
+              <textarea id="message" name="message" rows="6" required placeholder="Cuéntanos cómo podemos ayudarte..."></textarea>
+            </div>
+
+            <div class="form-group checkbox-group">
+              <label>
+                <input type="checkbox" required />
+                He leído y acepto la <a href="/privacidad">política de privacidad</a>
+              </label>
+            </div>
+
+            <button type="submit" class="btn">Enviar mensaje</button>
+
+            <div class="form-status" id="form-status"></div>
+          </form>
+        </div>
+
+        <div class="contact-info-section">
+          <div class="info-card">
+            <h3>Información de Contacto</h3>
+            <div class="info-item">
+              <strong>Email:</strong>
+              <a href="mailto:contacto@sanadorvirtual.mx">contacto@sanadorvirtual.mx</a>
+            </div>
+            <div class="info-item">
+              <strong>WhatsApp:</strong>
+              <span>+52 951 XXX XXXX</span>
+              <p class="note">(Disponible durante piloto)</p>
+            </div>
+            <div class="info-item">
+              <strong>Ubicación:</strong>
+              <span>Oaxaca, México</span>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <h3>Horarios de Atención</h3>
+            <p>
+              <strong>Lunes a Viernes:</strong><br>
+              9:00 AM - 6:00 PM
+            </p>
+            <p>
+              <strong>Fines de semana:</strong><br>
+              Emergencias únicamente
+            </p>
+            <p class="note">
+              Los horarios de teleconsulta médica pueden variar.
+              Una vez registrado, tendrás acceso 24/7 al triaje.
+            </p>
+          </div>
+
+          <div class="info-card">
+            <h3>Para Alianzas Institucionales</h3>
+            <p>
+              Si representas a IMSS-Bienestar, Secretaría de Salud,
+              gobiernos municipales, ONGs o instituciones interesadas
+              en colaborar, contáctanos directamente.
+            </p>
+            <a href="mailto:alianzas@sanadorvirtual.mx" class="email-link">
+              alianzas@sanadorvirtual.mx
+            </a>
+          </div>
+
+          <div class="info-card social">
+            <h3>Síguenos</h3>
+            <p>Mantente al día con noticias y actualizaciones</p>
+            <div class="social-links">
+              <a href="#" class="social-btn">Facebook</a>
+              <a href="#" class="social-btn">Twitter</a>
+              <a href="#" class="social-btn">Instagram</a>
+            </div>
+            <p class="note">Redes sociales disponibles durante el piloto</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .page-hero {
+    background: linear-gradient(135deg, #f3f6fb 0%, #e3ebf6 100%);
+    padding: 5rem 0 4rem;
+    text-align: center;
+  }
+
+  .page-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-description {
+    font-size: 1.25rem;
+    color: var(--text-light);
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.8;
+  }
+
+  .contact-content {
+    padding: 4rem 0;
+    background: white;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 4rem;
+  }
+
+  .contact-form-section h2 {
+    color: var(--primary);
+    margin-bottom: 2rem;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .form-group label {
+    color: var(--text);
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 0.75rem 1rem;
+    border: 2px solid var(--border);
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.2s;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+  }
+
+  .form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  .checkbox-group label {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    font-weight: 400;
+    line-height: 1.6;
+  }
+
+  .checkbox-group input[type="checkbox"] {
+    margin-top: 0.25rem;
+    flex-shrink: 0;
+  }
+
+  .checkbox-group a {
+    color: var(--primary);
+    text-decoration: underline;
+  }
+
+  .form-status {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    text-align: center;
+    font-weight: 600;
+    display: none;
+  }
+
+  .form-status.success {
+    background: #d1fae5;
+    color: #065f46;
+    display: block;
+  }
+
+  .form-status.error {
+    background: #fee2e2;
+    color: #991b1b;
+    display: block;
+  }
+
+  .contact-info-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .info-card {
+    background: var(--bg-light);
+    padding: 2rem;
+    border-radius: 1rem;
+  }
+
+  .info-card h3 {
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+    font-size: 1.25rem;
+  }
+
+  .info-item {
+    margin-bottom: 1.5rem;
+  }
+
+  .info-item:last-child {
+    margin-bottom: 0;
+  }
+
+  .info-item strong {
+    display: block;
+    color: var(--text);
+    margin-bottom: 0.25rem;
+  }
+
+  .info-item a {
+    color: var(--primary);
+    text-decoration: none;
+  }
+
+  .info-item a:hover {
+    text-decoration: underline;
+  }
+
+  .info-item span {
+    color: var(--text-light);
+  }
+
+  .info-card p {
+    color: var(--text-light);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+
+  .info-card p:last-child {
+    margin-bottom: 0;
+  }
+
+  .note {
+    font-size: 0.875rem;
+    font-style: italic;
+    color: var(--text-light);
+    margin-top: 0.5rem;
+  }
+
+  .email-link {
+    display: inline-block;
+    color: var(--primary);
+    font-weight: 600;
+    text-decoration: none;
+    margin-top: 1rem;
+  }
+
+  .email-link:hover {
+    text-decoration: underline;
+  }
+
+  .social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin: 1rem 0;
+  }
+
+  .social-btn {
+    padding: 0.75rem 1.5rem;
+    background: white;
+    color: var(--primary);
+    text-align: center;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.2s;
+    border: 2px solid var(--primary);
+  }
+
+  .social-btn:hover {
+    background: var(--primary);
+    color: white;
+  }
+
+  .map-section {
+    padding: 4rem 0;
+    background: var(--bg-light);
+  }
+
+  .map-section h2 {
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .section-subtitle {
+    text-align: center;
+    color: var(--text-light);
+    font-size: 1.125rem;
+    margin-bottom: 3rem;
+  }
+
+  .map-placeholder {
+    position: relative;
+    height: 400px;
+    background: white;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  }
+
+  .map-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.3;
+  }
+
+  .map-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,255,0.8);
+  }
+
+  .map-overlay p {
+    font-size: 1.25rem;
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  @media (max-width: 768px) {
+    .page-hero h1 {
+      font-size: 2rem;
+    }
+
+    .hero-description {
+      font-size: 1.1rem;
+    }
+
+    .contact-grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .form-row {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const status = document.getElementById('form-status') as HTMLDivElement;
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // In a real implementation, this would send to a backend
+    status.textContent = 'Enviando...';
+    status.className = 'form-status';
+    status.style.display = 'block';
+
+    // Simulate API call
+    setTimeout(() => {
+      status.textContent = '¡Mensaje enviado con éxito! Te contactaremos pronto.';
+      status.className = 'form-status success';
+      form.reset();
+    }, 1000);
+  });
+</script>
